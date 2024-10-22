@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try{
-                    if(e_eredmeny_szam < 3 && g_eredmeny_szam < 3){
                         gep_valasztott = lehetosegek[random.nextInt(3)];
                         ember_valasztott = "kő";
                         altalad_vsz.setImageResource(R.drawable.rock);
@@ -63,17 +62,21 @@ public class MainActivity extends AppCompatActivity {
                             gepaltal_vsz.setImageResource(R.drawable.paper);
                             g_eredmeny_szam++;
                             g_eredmeny.setText("Gép: " + g_eredmeny_szam);
+                            if(g_eredmeny_szam == 3){
+                                showJatekVege();
+                            }
                             Toast.makeText(MainActivity.this, "Vesztettél!", Toast.LENGTH_SHORT).show();
 
                         } else {
                             gepaltal_vsz.setImageResource(R.drawable.scissors);
                             e_eredmeny_szam++;
                             e_eredmeny.setText("Ember: " + e_eredmeny_szam + " ");
+                            if(e_eredmeny_szam == 3){
+                                showJatekVege();
+                            }
                             Toast.makeText(MainActivity.this, "Győztél!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if(e_eredmeny_szam == 3 || g_eredmeny_szam == 3){
-                        showJatekVege();
-                    }
+
                 } catch (Exception e){
                     Log.e("Myapp", "Hiba történt");
                 }
@@ -84,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    if(e_eredmeny_szam < 3 && g_eredmeny_szam < 3){
                         gep_valasztott = lehetosegek[random.nextInt(3)];
                         ember_valasztott = "papír";
                         altalad_vsz.setImageResource(R.drawable.paper);
@@ -93,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
                             gepaltal_vsz.setImageResource(R.drawable.rock);
                             e_eredmeny_szam++;
                             e_eredmeny.setText("Ember: " + e_eredmeny_szam + " ");
+                            if(e_eredmeny_szam == 3){
+                                showJatekVege();
+                            }
                             Toast.makeText(MainActivity.this, "Győztél!", Toast.LENGTH_SHORT).show();
                         } else if(gep_valasztott.equals("papír")){
                             gepaltal_vsz.setImageResource(R.drawable.paper);
@@ -100,11 +105,11 @@ public class MainActivity extends AppCompatActivity {
                             gepaltal_vsz.setImageResource(R.drawable.scissors);
                             g_eredmeny_szam++;
                             g_eredmeny.setText("Gép: " + g_eredmeny_szam);
+                            if(g_eredmeny_szam == 3){
+                                showJatekVege();
+                            }
                             Toast.makeText(MainActivity.this, "Vesztettél!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if(e_eredmeny_szam == 3 || g_eredmeny_szam == 3){
-                        showJatekVege();
-                    }
 
                 } catch (Exception e){
                     Log.e("Myapp", "Hiba történt");
@@ -117,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    if(e_eredmeny_szam < 3 && g_eredmeny_szam < 3){
                         gep_valasztott = lehetosegek[random.nextInt(3)];
                         ember_valasztott = "olló";
                         altalad_vsz.setImageResource(R.drawable.scissors);
@@ -126,18 +130,22 @@ public class MainActivity extends AppCompatActivity {
                             gepaltal_vsz.setImageResource(R.drawable.rock);
                             g_eredmeny_szam++;
                             g_eredmeny.setText("Gép: " + g_eredmeny_szam);
+                            if(g_eredmeny_szam == 3){
+                                showJatekVege();
+                            }
                             Toast.makeText(MainActivity.this, "Vesztettél!", Toast.LENGTH_SHORT).show();
                         } else if(gep_valasztott.equals("papír")){
                             gepaltal_vsz.setImageResource(R.drawable.paper);
                             e_eredmeny_szam++;
                             e_eredmeny.setText("Ember: " + e_eredmeny_szam + " ");
+                            if(e_eredmeny_szam == 3){
+                                showJatekVege();
+                            }
                             Toast.makeText(MainActivity.this, "Győztél!", Toast.LENGTH_SHORT).show();
                         } else {
                             gepaltal_vsz.setImageResource(R.drawable.scissors);
                         }
-                    } else if(e_eredmeny_szam == 3 || g_eredmeny_szam == 3){
-                        showJatekVege();
-                    }
+
                 } catch (Exception e){
                     Log.e("Myapp", "Hiba történt");
                 }
